@@ -50,6 +50,7 @@ The application has a responsive design, so it will only be displayed as in the 
     -@mui/styled-engine-sc: "^5.8.0",
 
 ____**Relevant Components**
+
     *Navbar*
     The first one has the title and an icon button that displays a side drawer with animation where you can see the selected bets that are stored in the reducer.
 
@@ -71,4 +72,4 @@ For unit tests, elements of the React Testing Library were used to track compone
     -@testing-library/user-event: "^13.5.0",
 
 ## Author
-- **Jose Vallejo** - _Initial work_ - [github](https://github.com/Javmendez727)
+- **Jose Vallejo** - _Initial work_ - [github](https://github.com/Javmendez727/BetSystemApp)
