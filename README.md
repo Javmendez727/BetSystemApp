@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# Bet System App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an application that simulates a betting system, it was realized with the help of technologies such as :
 
-## Available Scripts
+    -React
+    -Typescript
+    -Jest and React Testing Library for testing
+    -Some React Hooks, Redux
+    -Material UI for dynamic components
+    -Animation.css for animations (Library: animate.css [Last Version])
+## Getting Started
 
-In the project directory, you can run:
+- Clone this repo
+- Create a new feature-branch from master-branch
 
-### `npm start`
+Execute the following commands:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- npm install    ---- This runs the app in the development mode and opens [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- npm run test   ---- Launches the test runner in the interactive watch mode.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Extra command:
 
-### `npm test`
+We like to maintain a consistent and quality work, so we have to guarantee a 100% coverage when it comes to unit testing, this command helps to verify it and it is recommended to use it while working on any new functionality. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- npm run test -- --coverage 
 
-### `npm run build`
+## Work and App Description
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We rely on create-react-app to generate the project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The first task of this project was to define how the states would be handled, for convenience and scalability of the application it was decided to use Redux. After that, the following libraries were installed: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    -@reduxjs/toolkit: "^1.8.2",
+    -redux-mock-store: "^1.5.4",
+    -redux-observable: "^2.0.0",
+    -react-redux: "^8.0.2",
 
-### `npm run eject`
+Next step was to create folders such as components, store, actions, reducers, selectors and thunks. This last one was created to generate an action in charge of loading the data from the API and save it on the reducer when the application is rendered for the first time.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Since the mock to follow only had the mobile version I decided to make an application with responsive design with a limit on screens larger than 900px for the desktop version and smaller for the mobile.
+ 
+The application has a responsive design, so it will only be displayed as in the mock in screens smaller than 900px. I structured the application in 2 parts, the navbar and the betting system. For both I relied on the Material UI style libraries and components (Box, Typography, IconButton, Grid, ...etc) because of the many features and properties that have each one.
+    
+    -@emotion/react: "^11.9.3",
+    -@emotion/styled: "^11.9.3",
+    -@material-ui/core: "^4.12.4",
+    -@mui/icons-material: "^5.8.4",
+    -@mui/material: "^5.8.5",
+    -@mui/styled-engine: "^5.8.0",
+    -@mui/styled-engine-sc: "^5.8.0",
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+____**Relevant Components**
+    *Navbar*
+    The first one has the title and an icon button that displays a side drawer with animation where you can see the selected bets that are stored in the reducer.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    *BetSystem*
+    This component contains on the left the list of events that have at least one market, and on the right a betslip with the selected bets.
+    
+    *MatchModule*
+    This component gives the format in which the events are presented, it consists of 3 parts: the title, the ToWin section where you can only choose the home or away win, and the To Score First section, where you can only choose one of the scorers. When one of the options is selected, its respective button changes to green until it is deselected or the opposite option is selected.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    *BetSlip*
+    Here you can see all the selected bets and gives the user another option to return the selected button to its normal color by doing click on its respective Delete button that will appear in this component. 
 
-## Learn More
+## Unit Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For unit tests, elements of the React Testing Library were used to track components and dispatch actions, and for some tests it was necessary to mock the store and dispatch, for which Jest was helpful. Here are some of the libraries:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    -@testing-library/jest-dom: "^5.16.4",
+    -@testing-library/react: "^13.3.0",
+    -@testing-library/user-event: "^13.5.0",
+
+## Author
+- **Jose Vallejo** - _Initial work_ - [github](https://github.com/Javmendez727)
